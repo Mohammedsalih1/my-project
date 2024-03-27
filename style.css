@@ -305,6 +305,13 @@ footer {
   width: 20px;
   filter: invert(1);
 }
+.delete_btn {
+  flex: 1;
+  text-align: right;
+  margin-inline-end: 1rem;
+  cursor: pointer;
+  background-color: var(--main-color);
+}
 .your-words .container img {
   width: 35px;
   cursor: pointer;

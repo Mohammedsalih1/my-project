@@ -1,4 +1,3 @@
-
 setTimeout(() => {
     const FristPage = document.querySelector("[data-frist-page]");
     FristPage.style.display = "none";
@@ -49,12 +48,24 @@ function add_elements_to_page_from(array_of_tasks) {
         listenIcon.src = './listen-icon-23.png';
         listenIcon.className = 'listen-icon';
 
+        // create Delete button
+        var deleteBtn = document.createElement('span');
+        var deleteBtnText = document.createTextNode("Delete");
+        deleteBtn.appendChild(deleteBtnText);
+        deleteBtn.className = 'delete_btn';
+
+        deleteBtn.addEventListener('click', (event) => {
+            event.target.parentElement.remove();
+        });
+
         // listening to the words again
         listenIcon.addEventListener("click", () => {
             let the_saved_word = new SpeechSynthesisUtterance(listenIcon.parentElement.textContent);
             speechSynthesis.speak(the_saved_word);
         });
 
+        // append delete button
+        div.appendChild(deleteBtn);
         // append icon container to main div
         div.appendChild(listenIcon);
         // add task div to tasks container
@@ -144,14 +155,3 @@ links.forEach((e) => {
     });
 });
 /* ========================================================== switching between the tabs ================================================== */
-
-
-// let textInput = document.querySelector(".textInput");
-// let submit = document.querySelector(".add");
-
-// add task
-// submit.onclick = function() {
-//     if (textInput.value !== "") {
-//     }
-// }
-// localStorage.clear()
