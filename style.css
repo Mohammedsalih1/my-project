@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+:root {
+  --main-color: hsl(176, 50%, 47%);
+  --primary-color: hsl(176, 72%, 28%);
+
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --orange-color: #f59e0b;
+  --green-color: #22c55e;
+  --red-color: #f44336;
+  --grey-color: #888;
+
+  /* --main-color: #248; */
+
+  --main-transition: 0.5s ease;
+
+}
+/* start global rules*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  min-height: dvh;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  background: linear-gradient(180deg, var(--main-color) 40%, #4aadbd 58%);
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button:focus-visible {
+  outline: 2px solid gray;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*small*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/*end gloal rules*/
+/*==============================================  Header begins  ==================================================*/
+header {
+  box-shadow: 0px 0 5px 0px #000;
+  /* background: white; */
+  padding: 10px 0;
+  color: #2689dd;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .container .logo {
+  display: flex;
+  align-items: center;
+}
+header .container .logo .App-logo {
+  width: 50px;
+}
+header .container .logo .App-name {
+  color: white;
+  font-family: "Lobster", cursive;
+}
+header .container .menu-icon {
+  padding: 6px 5px;
+  display: flex;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* header .container .menu-icon img:focus-within {
+  outline: none;
+  background-color: red;
+  border: 2px solid var(--grey-color);
+} */
+.show-mobile-menu {
+  display: block !important;
+}
+.open-menu-bar {
+  cursor: pointer;
+  width: 20px;
+}
+.menu-bar {
+  padding-inline-end: 13px;
+  width: 40%;
+  background-color: white;
+  position: absolute;
+  top: 0%;
+  opacity: 0;
+  right: -100%;
+  min-height: calc(100vh - 5%);
+  /* min-height: 100dvh; */
+  z-index: -1111;
+  padding-inline-start: 1rem;
+  padding-block-start: 1rem;
+  transition: 400ms;
+  box-shadow: 0px 0px 1.5px 0px #777;
+}
+.menu-bar.open-menu {
+  right: 0%;
+  opacity: 1 !important;
+  z-index: 4444 !important;
+  min-height: 100vh;
+}
+.menu-bar .close-menu-bar {
+  cursor: pointer;
+  background: red;
+  padding: 6px;
+  border-radius: 50%;
+  /* position: absolute; */
+  /* left: 50%; */
+  /* translate: -50%; */
+  margin-block-end: 3rem;
+}
+.menu-bar li {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  margin-block-end: 5px;
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+.menu-bar li [data-words-number] {
+  color: var(--main-color);
+  font-weight: bold;
+}
+.menu-bar li.active {
+  background: #eee;
+}
+.menu-bar li:is(:hover, :focus-visible) {
+  background: #eee;
+}
+/* @media screen and (width >= 375px) {
+  header .container :is(.menu-bar, .open-menu-bar, .close-menu-bar) {
+    display: none;
+  }
+} */
+/*==============================================  Header ends  ====================================================*/
+/*==============================================  search-section begins  ====================================================*/
+.search-section .frist-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.7rem;
+  background-color: white;
+  position: absolute;
+  height: 100vh;
+  z-index: 6666;
+  top: 0;
+  width: 100%;
+}
+.search-section .frist-page img {
+  width: 50px;
+  animation: logoAnimation 1s linear;
+}
+@keyframes logoAnimation {
+  0% {
+    width: 0px;
+  } 
+  50% {
+    width: 70px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+.search-section .container {
+  margin-block-start: 20px;
+}
+.search-section .container .wrapper {
+  background: white;
+  padding: 16px;
+  border-radius: 3px;
+  position: relative;
+}
+.search-section .container .wrapper input[type="search"] {
+  width: 100%;
+  padding-block: 15px;
+  padding-inline: 10px;
+  margin-block-end: 10px;
+  font-size: 17px;
+  border: 2px solid var(--main-color);
+  border-radius: 6px;
+}
+.search-section .container .wrapper input[type="search"]:focus-visible {
+  background-color: #eee;
+  outline: none;
+  border: 2px solid transparent;
+}
+#play-btn {
+  border: none;
+  background: var(--main-color);
+  color: white;
+  padding-inline: 20px;
+  padding-block: 11px;
+  cursor: pointer;
+  border-radius: 6666px;
+  display: flex;
+  margin-left: auto;
+}
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding-block-end: 10px;
+  color: white;
+  line-height: 20px;
+  font-size: 14px;
+}
+.Error {
+  color: red;
+  font-size: 13px;
+  width: fit-content;
+  display: none;
+}
+.Error.ShowError {
+  display: block !important;
+}
+/*==============================================  search-section ends  ====================================================*/
+/*==============================================  words container start  ====================================================*/
+.Tab_one, .Tab_Two, .Tab_Three {
+  width: 100%;
+  position: absolute;
+  top: 120px;
+  z-index: -1111;
+  opacity: 0;
+  transition: all 500ms;
+}
+.your-words, .about-this-app {
+  background-color: transparent;
+  width: 100%;
+  height: calc(100% - 120px);
+  overflow: scroll;
+}
+.active-tab {
+  top: 70px !important;
+  z-index: 2222 !important;
+  opacity: 1 !important;
+}
+.your-words .container {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 8px;
+  margin-block-start: 1rem;
+}
+.your-words .container h2 {
+  position: absolute;
+  color: #777;
+  /* text-align: center; */
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  top: 50%;
+  left: 50%;
+  translate: -50%;
+}
+.your-words .container .word-container {
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 14px;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  border-radius: 6px;
+  padding-inline: 10px;
+}
+/* .your-words .container .word-container .icon-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+} */
+.your-words .container .word-container .delete-icon {
+  width: 20px;
+  filter: invert(1);
+}
+.your-words .container img {
+  width: 35px;
+  cursor: pointer;
+}
+/*==============================================  words container ends  ====================================================*/
