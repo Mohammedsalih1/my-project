@@ -18,8 +18,10 @@ if (localStorage.getItem("tasks")) {
 get_data_from_localstorage();
 
 wordContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains("delete_btn")) {
+    if (e.target.classList.contains("delete_icon")) {
+        // remove the words from the localstorage
         deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
+        // remove the words from the page
         e.target.parentElement.remove();
     }
 });
@@ -55,10 +57,9 @@ function add_elements_to_page_from(array_of_tasks) {
         listenIcon.className = 'listen-icon';
 
         // create Delete button
-        var deleteBtn = document.createElement('span');
-        var deleteBtnText = document.createTextNode("Delete");
-        deleteBtn.appendChild(deleteBtnText);
-        deleteBtn.className = 'delete_btn';
+        var deleteIcon = document.createElement('img');
+        deleteIcon.src = './icon-close-menu.svg'
+        deleteIcon.className = 'delete_icon';
 
         // listening to the words again
         listenIcon.addEventListener("click", () => {
@@ -67,17 +68,20 @@ function add_elements_to_page_from(array_of_tasks) {
         });
 
         // append delete button
-        div.appendChild(deleteBtn);
+        div.appendChild(deleteIcon);
         // append icon container to main div
         div.appendChild(listenIcon);
         // add task div to tasks container
         wordContainer.appendChild(div);
     });
 };
+
+// remove the word from local storage function
 function deleteWordsPermanently(wordId) {
-    // console.log(wordId);
     array_of_tasks = array_of_tasks.filter((task) => task.id != wordId);
     add_data_to_localstorage_from(array_of_tasks);
+    Getting_the_words_number();
+
 };
 
 
@@ -94,11 +98,11 @@ function get_data_from_localstorage() {
 };
 
 // getting the number of the words
-// const WordsNumber = document.querySelector("[data-words-number]");
-// function Getting_the_words_number() {
-//     WordsNumber.innerHTML = array_of_tasks.length;
-// }
-// Getting_the_words_number();
+const WordsNumber = document.querySelector("[data-words-number]");
+function Getting_the_words_number() {
+    WordsNumber.innerHTML = array_of_tasks.length;
+}
+Getting_the_words_number();
 
 /* ================================================  Storing data in local storage  ====================================================== */
 /* ==========================================================  menu bar code  =========================================================== */

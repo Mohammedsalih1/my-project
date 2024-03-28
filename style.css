@@ -278,7 +278,6 @@ footer {
 .your-words .container h2 {
   position: absolute;
   color: #777;
-  /* text-align: center; */
   font-size: 1.3rem;
   text-transform: capitalize;
   top: 50%;
@@ -286,6 +285,7 @@ footer {
   translate: -50%;
 }
 .your-words .container .word-container {
+  position: relative;
   background-color: #eee;
   display: flex;
   align-items: center;
@@ -296,23 +296,20 @@ footer {
   border-radius: 6px;
   padding-inline: 10px;
 }
-/* .your-words .container .word-container .icon-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-} */
+
 .your-words .container .word-container .delete-icon {
   width: 20px;
   filter: invert(1);
 }
-.delete_btn {
-  flex: 1;
+.delete_icon {
   text-align: right;
-  margin-inline-end: 1rem;
   cursor: pointer;
-  background-color: var(--main-color);
+  filter: brightness(0.5);
+  width: 24px;
+  position: absolute;
+  right: 65px;
 }
-.your-words .container img {
+.your-words .container .listen-icon {
   width: 35px;
   cursor: pointer;
 }
