@@ -19,10 +19,14 @@ get_data_from_localstorage();
 
 wordContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains("delete_icon")) {
-        // remove the words from the localstorage
-        deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
-        // remove the words from the page
-        e.target.parentElement.remove();
+        // add the swap effect
+        e.target.parentElement.classList.add("swapEffect");
+        setTimeout(() => {            
+            // remove the words from the localstorage
+            deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
+            // remove the words from the page
+            e.target.parentElement.remove();
+        }, 600);
     }
 });
 

@@ -295,6 +295,10 @@ footer {
   text-transform: capitalize;
   border-radius: 6px;
   padding-inline: 10px;
+  transition: all 500ms;
+}
+.swapEffect {
+  translate: -200% 0;
 }
 
 .your-words .container .word-container .delete-icon {
