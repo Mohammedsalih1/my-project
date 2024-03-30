@@ -3,18 +3,8 @@
 :root {
   --main-color: hsl(176, 50%, 47%);
   --primary-color: hsl(176, 72%, 28%);
-
-  --blue-color: #0075ff;
-  --blue-alt-color: #0d69d5;
-  --orange-color: #f59e0b;
-  --green-color: #22c55e;
-  --red-color: #f44336;
   --grey-color: #888;
-
-  /* --main-color: #248; */
-
   --main-transition: 0.5s ease;
-
 }
 /* start global rules*/
 * {
@@ -27,7 +17,7 @@ html {
 }
 body {
   min-height: 100vh;
-  min-height: dvh;
+  min-height: 100dvh;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   background: linear-gradient(180deg, var(--main-color) 40%, #4aadbd 58%);
@@ -71,9 +61,11 @@ button:focus-visible {
 /*==============================================  Header begins  ==================================================*/
 header {
   box-shadow: 0px 0 5px 0px #000;
-  /* background: white; */
   padding: 10px 0;
-  color: #2689dd;
+  position: fixed;
+  z-index: 111111;
+  width: 100%;
+  background-color: var(--main-color);
 }
 header .container {
   display: flex;
@@ -97,11 +89,6 @@ header .container .menu-icon {
   border-radius: 6px;
   cursor: pointer;
 }
-/* header .container .menu-icon img:focus-within {
-  outline: none;
-  background-color: red;
-  border: 2px solid var(--grey-color);
-} */
 .show-mobile-menu {
   display: block !important;
 }
@@ -118,7 +105,6 @@ header .container .menu-icon {
   opacity: 0;
   right: -100%;
   min-height: calc(100vh - 5%);
-  /* min-height: 100dvh; */
   z-index: -1111;
   padding-inline-start: 1rem;
   padding-block-start: 1rem;
@@ -136,9 +122,6 @@ header .container .menu-icon {
   background: red;
   padding: 6px;
   border-radius: 50%;
-  /* position: absolute; */
-  /* left: 50%; */
-  /* translate: -50%; */
   margin-block-end: 3rem;
 }
 .menu-bar li {
@@ -149,6 +132,8 @@ header .container .menu-icon {
   cursor: pointer;
   padding: 7px 10px;
   border-radius: 4px;
+  font-family: normal;
+  font-size: 17px;
 }
 .menu-bar li [data-words-number] {
   color: var(--main-color);
@@ -160,11 +145,6 @@ header .container .menu-icon {
 .menu-bar li:is(:hover, :focus-visible) {
   background: #eee;
 }
-/* @media screen and (width >= 375px) {
-  header .container :is(.menu-bar, .open-menu-bar, .close-menu-bar) {
-    display: none;
-  }
-} */
 /*==============================================  Header ends  ====================================================*/
 /*==============================================  search-section begins  ====================================================*/
 .search-section .frist-page {
@@ -176,7 +156,7 @@ header .container .menu-icon {
   background-color: white;
   position: absolute;
   height: 100vh;
-  z-index: 6666;
+  z-index: 111111;
   top: 0;
   width: 100%;
 }
@@ -261,7 +241,6 @@ footer {
 .your-words, .about-this-app {
   background-color: transparent;
   width: 100%;
-  height: calc(100% - 120px);
   overflow: scroll;
 }
 .active-tab {
@@ -272,8 +251,7 @@ footer {
 .your-words .container {
   display: flex;
   flex-direction: column-reverse;
-  row-gap: 8px;
-  margin-block-start: 1rem;
+  padding-inline: 0;
 }
 .your-words .container h2 {
   position: absolute;
@@ -286,21 +264,22 @@ footer {
 }
 .your-words .container .word-container {
   position: relative;
-  background-color: #eee;
+  color: white;
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-block: 14px;
   font-size: 1.1rem;
+  font-family: normal;
   text-transform: capitalize;
-  border-radius: 6px;
   padding-inline: 10px;
   transition: all 500ms;
+  border-bottom: 1px solid var(--grey-color);
 }
 .swapEffect {
   translate: -200% 0;
 }
-
 .your-words .container .word-container .delete-icon {
   width: 20px;
   filter: invert(1);
@@ -308,8 +287,7 @@ footer {
 .delete_icon {
   text-align: right;
   cursor: pointer;
-  filter: brightness(0.5);
-  width: 24px;
+  width: 20px;
   position: absolute;
   right: 65px;
 }

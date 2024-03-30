@@ -57,12 +57,12 @@ function add_elements_to_page_from(array_of_tasks) {
 
         // create listen icon
         let listenIcon = document.createElement("img");
-        listenIcon.src = './listen-icon-23.png';
+        listenIcon.src = './images/listen-icon-23.png';
         listenIcon.className = 'listen-icon';
 
         // create Delete button
         var deleteIcon = document.createElement('img');
-        deleteIcon.src = './icon-close-menu.svg'
+        deleteIcon.src = './images/icon-close-menu.svg'
         deleteIcon.className = 'delete_icon';
 
         // listening to the words again
