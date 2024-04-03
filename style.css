@@ -230,7 +230,7 @@ footer {
 }
 /*==============================================  search-section ends  ====================================================*/
 /*==============================================  words container start  ====================================================*/
-.Tab_one, .Tab_Two, .Tab_Three {
+.Tab_one, .Tab_Two {
   width: 100%;
   position: absolute;
   top: 120px;
@@ -238,7 +238,14 @@ footer {
   opacity: 0;
   transition: all 500ms;
 }
-.your-words, .about-this-app {
+/* for depugging */
+.Tab_Two {
+  height: 50%;
+}
+.Tab_Two.active-tab {
+  height: calc(100vh - 70px);
+}
+.your-words {
   background-color: transparent;
   width: 100%;
   overflow: scroll;
