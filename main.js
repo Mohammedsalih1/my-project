@@ -9,6 +9,7 @@ let wordContainer = document.querySelector(".your-words .container");
 // empty array to store the tasks
 let array_of_tasks = [];
 
+
 // check if there is tasks in local storage
 if (localStorage.getItem("tasks")) {
     array_of_tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -19,7 +20,7 @@ get_data_from_localstorage();
 
 wordContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains("delete_icon")) {
-        // add the swap effect
+        // add the swipe effect
         e.target.parentElement.classList.add("swapEffect");
         setTimeout(() => {            
             // remove the words from the localstorage
@@ -27,6 +28,10 @@ wordContainer.addEventListener('click', (e) => {
             // remove the words from the page
             e.target.parentElement.remove();
         }, 600);
+
+        if (array_of_tasks.length == 0) { // when the user delete the list
+            wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
+        }
     }
 });
 
@@ -85,7 +90,10 @@ function deleteWordsPermanently(wordId) {
     array_of_tasks = array_of_tasks.filter((task) => task.id != wordId);
     add_data_to_localstorage_from(array_of_tasks);
     Getting_the_words_number();
-
+    if (array_of_tasks.length == 0) {
+        wordContainer.innerHTML = `<h2>you didn't add any words to your list yet</h2>`; 
+        // console.log("your list is Empty");
+    }
 };
 
 
@@ -105,6 +113,10 @@ function get_data_from_localstorage() {
 const WordsNumber = document.querySelector("[data-words-number]");
 function Getting_the_words_number() {
     WordsNumber.innerHTML = array_of_tasks.length;
+    
+    if (array_of_tasks.length == 0) { // when the user delete the list
+        wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
+    }
 }
 Getting_the_words_number();
 
@@ -134,6 +146,7 @@ playBtn.addEventListener("click", Speak_out_loud);
 
 function Speak_out_loud() {
     let ErrorMSG = document.querySelector(".Error");
+    
 
     // handling Errors 
     if (textInput.value.length == 0 || textInput.value == " ") {

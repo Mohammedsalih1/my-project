@@ -88,6 +88,17 @@ header .container .menu-icon {
   display: flex;
   border-radius: 6px;
   cursor: pointer;
+  position: relative;
+}
+header .new-word-icon {
+  display: none;
+  color: white;
+  background-color: red;
+  padding: 0px 7px;
+  position: absolute;
+  border-radius: 50%;
+  top: -8px;
+  right: -7px;
 }
 .show-mobile-menu {
   display: block !important;
