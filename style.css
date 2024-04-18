@@ -90,15 +90,17 @@ header .container .menu-icon {
   cursor: pointer;
   position: relative;
 }
-header .new-word-icon {
-  display: none;
+header .notification-icon {
+  /* display: none; */
+  scale: 0 0;
   color: white;
   background-color: red;
   padding: 0px 7px;
   position: absolute;
   border-radius: 50%;
-  top: -8px;
-  right: -7px;
+  top: -5px;
+  right: -3px;
+  transition: 300ms;
 }
 .show-mobile-menu {
   display: block !important;

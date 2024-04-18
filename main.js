@@ -128,6 +128,12 @@ let mobile_menu = document.querySelector(".menu-bar");
 
 function Show_Mobile_menu() {;
     mobile_menu.classList.add("open-menu");
+    // hide notification icon
+    let notification_icon = document.querySelector(".notification-icon");
+
+    if (notification_icon.style.scale = '1 1') {
+        notification_icon.style.scale = '0 0'
+    }
 }
 open_menu.addEventListener("click", Show_Mobile_menu);
 
@@ -147,7 +153,6 @@ playBtn.addEventListener("click", Speak_out_loud);
 function Speak_out_loud() {
     let ErrorMSG = document.querySelector(".Error");
     
-
     // handling Errors 
     if (textInput.value.length == 0 || textInput.value == " ") {
         ErrorMSG.classList.add("ShowError");
@@ -158,10 +163,15 @@ function Speak_out_loud() {
         add_task_to_array(textInput.value); // add task to array of tasks
         textInput.value = ""; // empty input field
         Getting_the_words_number();
+
+        // notificate the users when they add a new word to the list
+        if (true) {
+            let notification_icon = document.querySelector(".notification-icon");
+            notification_icon.style.scale = '1 1';
+        }
     }
 };
 /* ========================================================== Saying the words code ====================================================== */
-
 
 /* ========================================================== switching between the tabs ================================================== */
 let links = document.querySelectorAll(".menu-bar li");
