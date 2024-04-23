@@ -18,13 +18,14 @@ if (localStorage.getItem("tasks")) {
 // trigger get data from local storage
 get_data_from_localstorage();
 
-wordContainer.addEventListener('click', (e) => {
-    let delete_confirmation = document.querySelector('.delete-confirmation');
-    let cancel_btn = document.querySelector('[data-cancel]');
-    let delete_btn = document.querySelector('[data-delete]');
+function TestingFunction(Delete_Element) {
+    Delete_Element.addEventListener("click", (e) => {
 
-    if (e.target.classList.contains("delete_icon")) {
-        // add the swipe effect
+        let delete_confirmation = document.querySelector('.delete-confirmation');
+        let cancel_btn = document.querySelector('[data-cancel]');
+        let delete_btn = document.querySelector('[data-delete]');
+
+         // add the swipe effect
         e.target.parentElement.classList.add("half-swapEffect");
 
         delete_confirmation.style.scale = '1 1';
@@ -33,27 +34,103 @@ wordContainer.addEventListener('click', (e) => {
         cancel_btn.addEventListener("click", () => {
             delete_confirmation.style.scale = '0 0';
             e.target.parentElement.classList.remove('half-swapEffect');
+            e.target.parentElement.setAttribute('data-id', 'not-removed');
         });
 
         // when the user press belete button 
         delete_btn.addEventListener("click", () => {
-            e.target.parentElement.classList.add('full-swapEffect');
-
-            setTimeout(() => {            
-                // remove the words from the localstorage
-                deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
-                // remove the words from the page
-                e.target.parentElement.remove();
-            }, 600);
+            if (e.target.parentElement.getAttribute("data-id") == 'not-removed') {
+                return null;
+            } else {
+                e.target.parentElement.classList.add('full-swapEffect');
+    
+                setTimeout(() => {            
+                    // remove the words from the localstorage
+                    deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
+                    // remove the words from the page
+                    e.target.parentElement.remove();
+                }, 600);
+            }
 
             delete_confirmation.style.scale = '0 0';
         });
 
-        if (array_of_tasks.length == 0) { // when the user delete the list
-            wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
-        }
-    }
-});
+    });
+};
+
+// wordContainer.addEventListener('click', (e) => {
+//     let delete_confirmation = document.querySelector('.delete-confirmation');
+//     let cancel_btn = document.querySelector('[data-cancel]');
+//     let delete_btn = document.querySelector('[data-delete]');
+
+//     if (e.target.classList.contains("delete_icon")) {
+//         // add the swipe effect
+//         e.target.parentElement.classList.add("half-swapEffect");
+
+//         delete_confirmation.style.scale = '1 1';
+
+//         // when the user press cancel button
+//         cancel_btn.addEventListener("click", () => {
+//             delete_confirmation.style.scale = '0 0';
+//             e.target.parentElement.classList.remove('half-swapEffect');
+//         });
+
+//         // when the user press belete button 
+//         delete_btn.addEventListener("click", () => {
+//             e.target.parentElement.classList.add('full-swapEffect');
+
+//             setTimeout(() => {            
+//                 // remove the words from the localstorage
+//                 deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
+//                 // remove the words from the page
+//                 e.target.parentElement.remove();
+//             }, 600);
+
+//             delete_confirmation.style.scale = '0 0';
+//         });
+
+//         if (array_of_tasks.length == 0) { // when the user delete the list
+//             wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
+//         }
+//     }
+// });
+
+// wordContainer.addEventListener('click', (e) => {
+//     let delete_confirmation = document.querySelector('.delete-confirmation');
+//     let cancel_btn = document.querySelector('[data-cancel]');
+//     let delete_btn = document.querySelector('[data-delete]');
+
+//     if (e.target.classList.contains("delete_icon")) {
+//         // add the swipe effect
+//         e.target.parentElement.classList.add("half-swapEffect");
+
+//         delete_confirmation.style.scale = '1 1';
+
+//         // when the user press cancel button
+//         cancel_btn.addEventListener("click", () => {
+//             delete_confirmation.style.scale = '0 0';
+//             e.target.parentElement.classList.remove('half-swapEffect');
+//         });
+
+//         // when the user press belete button 
+//         delete_btn.addEventListener("click", () => {
+//             e.target.parentElement.classList.add('full-swapEffect');
+
+//             setTimeout(() => {            
+//                 // remove the words from the localstorage
+//                 deleteWordsPermanently(e.target.parentElement.getAttribute("data-id"));
+//                 // remove the words from the page
+//                 e.target.parentElement.remove();
+//             }, 600);
+
+//             delete_confirmation.style.scale = '0 0';
+//         });
+
+//         if (array_of_tasks.length == 0) { // when the user delete the list
+//             wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
+//         }
+//     }
+// });
 
 function add_task_to_array(tasktext) {
     // task data
@@ -69,6 +146,7 @@ function add_task_to_array(tasktext) {
     // add tasks to local storage
     add_data_to_localstorage_from(array_of_tasks);
 };
+
 function add_elements_to_page_from(array_of_tasks) {
     // empty task div
     wordContainer.innerHTML = "";
@@ -82,12 +160,12 @@ function add_elements_to_page_from(array_of_tasks) {
 
         // create listen icon
         let listenIcon = document.createElement("img");
-        listenIcon.src = './images/listen-icon-23.png';
+        listenIcon.src = './listen-icon-23.png';
         listenIcon.className = 'listen-icon';
 
         // create Delete button
         var deleteIcon = document.createElement('img');
-        deleteIcon.src = './images/icon-close-menu.svg'
+        deleteIcon.src = './icon-close-menu.svg'
         deleteIcon.className = 'delete_icon';
 
         // listening to the words again
@@ -95,6 +173,8 @@ function add_elements_to_page_from(array_of_tasks) {
             let the_saved_word = new SpeechSynthesisUtterance(listenIcon.parentElement.textContent);
             speechSynthesis.speak(the_saved_word);
         });
+
+        TestingFunction(deleteIcon);
 
         // append delete button
         div.appendChild(deleteIcon);
@@ -110,10 +190,6 @@ function deleteWordsPermanently(wordId) {
     array_of_tasks = array_of_tasks.filter((task) => task.id != wordId);
     add_data_to_localstorage_from(array_of_tasks);
     Getting_the_words_number();
-    if (array_of_tasks.length == 0) {
-        wordContainer.innerHTML = `<h2>you didn't add any words to your list yet</h2>`; 
-        // console.log("your list is Empty");
-    }
 };
 
 
@@ -133,10 +209,6 @@ function get_data_from_localstorage() {
 const WordsNumber = document.querySelector("[data-words-number]");
 function Getting_the_words_number() {
     WordsNumber.innerHTML = array_of_tasks.length;
-    
-    if (array_of_tasks.length == 0) { // when the user delete the list
-        wordContainer.innerHTML = `<h2>you deleted all the list</h2>`
-    }
 }
 Getting_the_words_number();
 

@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
 :root {
   --main-color: hsl(176, 50%, 47%);
   --primary-color: hsl(176, 72%, 28%);
@@ -18,7 +17,6 @@ html {
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  font-family: "Raleway", sans-serif;
   font-size: 16px;
   background: linear-gradient(180deg, var(--main-color) 40%, #4aadbd 58%);
   background-repeat: no-repeat;
@@ -81,7 +79,7 @@ header .container .logo .App-logo {
 }
 header .container .logo .App-name {
   color: white;
-  font-family: "Lobster", cursive;
+  /* font-family: "Lobster", cursive; */
 }
 header .container .menu-icon {
   padding: 6px 5px;
@@ -111,7 +109,7 @@ header .notification-icon {
 }
 .menu-bar {
   padding-inline-end: 13px;
-  width: 40%;
+  width: 65%;
   background-color: white;
   position: absolute;
   top: 0%;
@@ -321,38 +319,43 @@ footer {
 /*==============================================  words container ends  ====================================================*/
 
 .delete-confirmation {
+  width: 90%;
   scale: 0 0;
   position: absolute;
   left: 50%;
   top: 50%;
   translate: -50%;
   background-color: #eee;
-  padding-inline: 1rem;
   padding-block-start: 1rem;
   border-radius: 5px;
-  box-shadow: 0 0 1px 304px #0000005e;
+  box-shadow: 0 0 1px 304px rgb(0 0 0 / 23%);
   z-index: 888888;
   transition: 200ms;
 }
 .delete-confirmation h4 {
   color: var(--grey-color);
   margin-block-end: 10px;
+  border-bottom: 1px solid var(--grey-color);
+  padding-block-end: 15px;
+  padding-inline: 11px;
 }
 .delete-confirmation .confirmation-btns {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.delete-confirmation .confirmation-btns button {
+.delete-confirmation button {
+  width: 100%;
   cursor: pointer;
   font-size: 1.2rem;
   background: none;
   border: none;
   padding-block: 1rem;
 }
-.delete-confirmation .confirmation-btns .cancel-btn {
+.delete-confirmation .cancel-btn {
+  border-top: 3px solid var(--main-color);
   color: #248;
 }
-.delete-confirmation .confirmation-btns .delete-btn {
+.delete-confirmation /*.confirmation-btns*/ .delete-btn {
   color: red;
 }
