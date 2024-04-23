@@ -103,11 +103,11 @@ header .notification-icon {
 }
 .open-menu-bar {
   cursor: pointer;
-  width: 25px;
+  width: 23px;
 }
 .menu-bar {
   padding-inline-end: 13px;
-  width: 65%;
+  width: 60%;
   background-color: white;
   position: absolute;
   top: 0%;
@@ -217,7 +217,7 @@ header .notification-icon {
   border-radius: 6666px;
   display: flex;
   margin-left: auto;
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 .Error {
   color: red;
@@ -259,7 +259,7 @@ header .notification-icon {
 .your-words .container {
   display: flex;
   flex-direction: column-reverse;
-  padding-inline: 15px;
+  padding-inline: 5px;
   margin-block-start: 10px;
 }
 .your-words .container h2 {
@@ -325,7 +325,7 @@ header .notification-icon {
   transition: 200ms;
 }
 .delete-confirmation h4 {
-  font-size: 21px;
+  font-size: 20px;
   color: var(--grey-color);
   border-bottom: 1px solid var(--grey-color);
   padding-block-end: 15px;
