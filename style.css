@@ -103,7 +103,7 @@ header .notification-icon {
 }
 .open-menu-bar {
   cursor: pointer;
-  width: 20px;
+  width: 19px;
 }
 .menu-bar {
   padding-inline-end: 13px;
@@ -211,13 +211,12 @@ header .notification-icon {
   border: none;
   background: var(--main-color);
   color: white;
-  padding-inline: 20px;
-  padding-block: 13px;
+  padding-inline: 19px;
+  padding-block: 12px;
   cursor: pointer;
   border-radius: 6666px;
   display: flex;
   margin-left: auto;
-  /* font-size: 1rem; */
 }
 .Error {
   color: red;
@@ -259,7 +258,7 @@ header .notification-icon {
 .your-words .container {
   display: flex;
   flex-direction: column-reverse;
-  padding-inline: 5px;
+  padding-inline: 1px;
   margin-block-start: 10px;
 }
 .your-words .container h2 {
