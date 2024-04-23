@@ -105,7 +105,7 @@ header .notification-icon {
 }
 .open-menu-bar {
   cursor: pointer;
-  width: 20px;
+  width: 25px;
 }
 .menu-bar {
   padding-inline-end: 13px;
@@ -139,12 +139,12 @@ header .notification-icon {
   display: flex;
   justify-content: space-between;
   color: #777;
-  margin-block-end: 5px;
+  margin-block-end: 10px;
   cursor: pointer;
   padding: 7px 10px;
   border-radius: 4px;
   font-family: normal;
-  font-size: 17px;
+  font-size: 19px;
 }
 .menu-bar li [data-words-number] {
   color: var(--main-color);
@@ -214,11 +214,12 @@ header .notification-icon {
   background: var(--main-color);
   color: white;
   padding-inline: 20px;
-  padding-block: 11px;
+  padding-block: 13px;
   cursor: pointer;
   border-radius: 6666px;
   display: flex;
   margin-left: auto;
+  font-size: 1rem;
 }
 footer {
   width: 100%;
@@ -269,7 +270,8 @@ footer {
 .your-words .container {
   display: flex;
   flex-direction: column-reverse;
-  padding-inline: 0;
+  padding-inline: 15px;
+  margin-block-start: 10px;
 }
 .your-words .container h2 {
   position: absolute;
@@ -293,7 +295,9 @@ footer {
   text-transform: capitalize;
   padding-inline: 10px;
   transition: all 500ms;
-  border-bottom: 1px solid var(--grey-color);
+  /* border-bottom: 1px solid var(--grey-color); */
+  margin-bottom: 2px;
+  border-radius: 6px;
 }
 .half-swapEffect {
   translate: -15% 0;
@@ -333,8 +337,8 @@ footer {
   transition: 200ms;
 }
 .delete-confirmation h4 {
+  font-size: 21px;
   color: var(--grey-color);
-  margin-block-end: 10px;
   border-bottom: 1px solid var(--grey-color);
   padding-block-end: 15px;
   padding-inline: 11px;
