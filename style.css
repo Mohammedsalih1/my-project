@@ -79,7 +79,6 @@ header .container .logo .App-logo {
 }
 header .container .logo .App-name {
   color: white;
-  /* font-family: "Lobster", cursive; */
 }
 header .container .menu-icon {
   padding: 6px 5px;
@@ -89,7 +88,6 @@ header .container .menu-icon {
   position: relative;
 }
 header .notification-icon {
-  /* display: none; */
   scale: 0 0;
   color: white;
   background-color: red;
@@ -221,16 +219,6 @@ header .notification-icon {
   margin-left: auto;
   font-size: 1rem;
 }
-footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  padding-block-end: 10px;
-  color: white;
-  line-height: 20px;
-  font-size: 14px;
-}
 .Error {
   color: red;
   font-size: 13px;
@@ -250,6 +238,7 @@ footer {
   opacity: 0;
   transition: all 500ms;
 }
+
 /* for depugging */
 .Tab_Two {
   height: 50%;
@@ -295,8 +284,7 @@ footer {
   text-transform: capitalize;
   padding-inline: 10px;
   transition: all 500ms;
-  /* border-bottom: 1px solid var(--grey-color); */
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   border-radius: 6px;
 }
 .half-swapEffect {
@@ -360,6 +348,6 @@ footer {
   border-top: 3px solid var(--main-color);
   color: #248;
 }
-.delete-confirmation /*.confirmation-btns*/ .delete-btn {
+.delete-confirmation  .delete-btn {
   color: red;
 }
