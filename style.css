@@ -255,15 +255,6 @@ header .notification-icon {
   padding-inline: 6px;
   margin-block-start: 10px;
 }
-/* .words-list .container h2 {
-  position: absolute;
-  color: #777;
-  font-size: 1.3rem;
-  text-transform: capitalize;
-  top: 50%;
-  left: 50%;
-  translate: -50%;
-} */
 .words-list .container .word-container {
   position: relative;
   color: var(--white);
