@@ -3,57 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/jpg" sizes="32x32" href="./AppIcon.jpg">
+    <link rel="icon" type="image/jpg" sizes="32x32" href="./assets/icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransVoice</title>
     <link rel="stylesheet" href="style.css">
     <script src="App.js" defer></script>
 </head>
     <body>
+        <div class="welcome-page" data-welcome-page><img src="./assets/icon.png" width="50" alt="AppIcon"></div>
+
         <!-- start header -->
         <header>
             <div class="container">
-                <div class="logo">
-                    <img src="./AppLogo.png " class="App-logo">
-                    <h1 class="App-name">TransVoice</h1>
-                </div>
+                <h1 class="logo"><img src="./assets/Logo.png " class="header-logo" width="50" height="50" alt="website logo">TransVoice</h1>
+
                 <ul class="menu-bar">
-                <img src="./icon-close-menu.svg" alt="close-menu-bar" class="close-menu-bar">
+                    <img src="./assets/icon-close-menu.svg" alt="close-menu-bar" class="close-menu-bar">
                     <li class="active" data-content=".Tab_one">Home</li>
-                    <li data-content=".Tab_Two">Your List<span data-words-number></span></li>
+                    <li data-content=".Tab_Two">Your List<span class="words-counter" data-words-number></span></li>
                 </ul>
                 <div class="menu-icon">
                     <span class="notification-icon">!</span>
-                    <img src="./icon-hamburger.svg" alt="open-menu-bar" class="open-menu-bar">
+                    <img src="./assets/icon-hamburger.svg" alt="open-menu-bar" width="19" class="open-menu-bar">
                 </div>
             </div>
         </header>
         <!-- end header -->
 
-        <!-- start search section -->
-        <section class="search-section">
-            <div class="frist-page" data-frist-page>
-                <img src="./Appicon.png" alt="AppIcon"> 
-            </div>
-
+        <!-- start form section -->
+        <section class="form-section">
             <div class="container Tab_one active-tab" data-tab>
-                <div class="wrapper">
+                <div class="form-wrapper">
                     <input type="search" id="text" placeholder="Enter Words or Sentences">
-                    <p class="Error">Enter Words or Sentences frist</p>
-                    <button id="play-btn">Add to list</button>
+                    <p class="Error-message">Enter Words or Sentences frist</p>
+                    <button id="play-btn" class="add-btn">Add to list</button>
                 </div>
             </div>
         </section>
 
-        <section class="your-words Tab_Two" data-tab>
+        <section class="words-list Tab_Two" data-tab>
             <div class="container">
             </div>
         </section>
 
         <div class="delete-confirmation">
             <h4>Would you like to delete this word?</h4>
-            <button class="delete-btn" data-delete>Delete</button>
-            <button class="cancel-btn" data-cancel>Cancel</button>
+            <div class="btns">
+                <button class="delete-btn" data-delete>Yes</button>
+                <button class="cancel-btn" data-cancel>No</button>
+            </div>
         </div>
 
     </body>
