@@ -83,6 +83,11 @@ button:focus-visible {
     width: 50px;
   }
 }
+@media (width >= 767px) {
+  .welcome-page {
+    display: none !important;
+  }
+}
 /*==============================================  Header begins  ==================================================*/
 header {
   box-shadow: var(--shadow-1);
@@ -220,6 +225,18 @@ header .notification-icon {
 .Error-message.ShowError {
   display: block !important;
 }
+/*                              Desktop styles                            */
+@media (width >= 767px) {
+  .Tab_one {
+    position: fixed !important;
+  }
+  .form-section .container {
+    width: 48%;
+  }
+  .menu-icon {
+    display: none !important;
+  }
+}
 /*==============================================  form-section ends  ====================================================*/
 /*==============================================  words container start  ====================================================*/
 .Tab_one, .Tab_Two {
@@ -274,10 +291,6 @@ header .notification-icon {
 .full-swapEffect {
   translate: -200% 0;
 }
-/* .words-list .container .word-container .delete-icon {
-  width: 20px;
-  filter: invert(1);
-} */
 .icons {
   display: flex;
   align-items: center;
@@ -285,8 +298,6 @@ header .notification-icon {
   align-self: flex-end;
 }
 .delete_icon {
-  /* position: absolute;
-  right: 65px; */
   width: 20px;
   cursor: pointer;
   text-align: right;
@@ -294,6 +305,18 @@ header .notification-icon {
 .words-list .container .listen-icon {
   width: 35px;
   cursor: pointer;
+}
+/* Desktop styles */
+@media (width >= 767px) {
+  .Tab_Two {
+    position: unset;
+    opacity: 1;
+  }
+  .Tab_Two .container {
+    width: 50%;
+    margin-right: 0;
+    margin-top: 90px;
+  }
 }
 /*==============================================  words container ends  ====================================================*/
 
@@ -334,3 +357,13 @@ header .notification-icon {
 }
 .delete-confirmation .cancel-btn {  color: var(--main-color); }
 .delete-confirmation  .delete-btn {  color: var(--red); }
+
+@media (width >= 767px) {
+  .delete-confirmation {
+    box-shadow: 0 0 1px 1000px rgb(0 0 0 / 23%);
+    width: fit-content;
+  }
+  .delete-confirmation h4 {
+    padding-inline: 2rem;
+  }
+}
